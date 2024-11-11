@@ -9,9 +9,9 @@ const Footer = () => {
             <form id="subscribeForm">
                 <div class="email-form">
                     <span class="form-control-wrap">
-                        <input type="email" name="email" id="email" size="40" class="form-control"
+                        <input type="email" name="email" id="email" size="20" class="form-groupform-control form-control-lg"
                             placeholder="Your working email" required/>
-                    </span>
+                    </span> <br/>
                     <button type="submit" class="sub-submit">Subscribe
                         <i class="fas fa-chevron-right text-danger"></i>
                     </button>
