@@ -14,7 +14,7 @@
         "category": "Feed",
         "price": 18.5,
         "description": "Balanced grower feed for pullets and broilers aged 4-8 weeks.",
-        "image": "https://example.com/images/grower_feed.jpg"
+        "image": "/images/growers.jpeg"
       },
       {
         "id": 3,
@@ -22,7 +22,7 @@
         "category": "Feed",
         "price": 15.0,
         "description": "Specially formulated feed for laying hens to maximize egg production.",
-        "image": "https://example.com/images/layer_feed.jpg"
+        "image": "/images/layers.jpeg"
       },
       {
         "id": 4,
@@ -30,7 +30,7 @@
         "category": "Supplements",
         "price": 10.0,
         "description": "Multivitamin supplements to boost immunity and overall health in poultry.",
-        "image": "https://example.com/images/vitamin_supplements.jpg"
+        "image": "/images/vitamin.webp"
       },
       {
         "id": 5,
@@ -38,50 +38,42 @@
         "category": "Supplements",
         "price": 8.0,
         "description": "Calcium supplement to enhance eggshell strength in laying hens.",
-        "image": "https://example.com/images/calcium_booster.jpg"
+        "image": "/images/calcium.jpeg"
       },
       {
         "id": 6,
-        "name": "Automatic Feeder",
-        "category": "Equipment",
-        "price": 45.0,
-        "description": "Automatic feeder that dispenses feed on schedule, reducing waste.",
-        "image": "https://example.com/images/automatic_feeder.jpg"
-      },
-      {
-        "id": 7,
         "name": "Water Drinker",
         "category": "Equipment",
         "price": 12.0,
         "description": "Water drinker with 5-liter capacity, ideal for poultry of all ages.",
-        "image": "https://example.com/images/water_drinker.jpg"
+        "image": "/images/drinker.jpg"
       },
       {
-        "id": 8,
+        "id":7,
         "name": "Brooder Lamp",
         "category": "Equipment",
         "price": 20.0,
         "description": "Heat lamp for keeping chicks warm during their early stages.",
-        "image": "https://example.com/images/brooder_lamp.jpg"
+        "image": "/images/lamp.jpg"
       },
       {
-        "id": 9,
+        "id": 8,
         "name": "Newcastle Disease Vaccine",
         "category": "Medicines",
         "price": 5.0,
         "description": "Vaccine to prevent Newcastle disease in poultry. Suitable for all ages.",
-        "image": "https://example.com/images/newcastle_vaccine.jpg"
+        "image": "/images/newcastleVaccine.jpeg"
       },
       {
-        "id": 10,
+        "id": 9,
         "name": "Deworming Medicine",
         "category": "Medicines",
         "price": 7.0,
         "description": "Effective dewormer for poultry to eliminate internal parasites.",
-        "image": "https://example.com/images/deworming_medicine.jpg"
+        "image": "/images/dewormer.jpg"
       },
       {
-        "id": 11,
+        "id": 10,
         "name": "Antibiotic Powder",
         "category": "Medicines",
         "price": 6.5,
