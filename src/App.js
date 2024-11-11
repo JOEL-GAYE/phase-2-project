@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Search from "./components/Search";
 import React, { useState, useEffect } from "react";
+import NewProductList from "./components/NewProductList";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -41,6 +42,7 @@ function App() {
     <div>
       <Header />
       <Search handleSearch={handleSearch} />
+      <NewProductList onAddProduct={handleAddProduct}/>
       <div className="product-list">
         {filteredProducts.map((product) => (
           <div key={product.id} className="product-card">
