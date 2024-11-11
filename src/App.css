@@ -23,6 +23,40 @@
 h1{
   display: flex;
   justify-content: center;
-  background-color: rgb(47, 243, 177);
+  background-color: rgba(121, 119, 2, 0.5);
   color: darkgrey;
+}
+.new-product-form{
+  
+    padding: 2rem 1rem;
+    margin: 2rem 0;
+    background-color: rgba(121, 119, 2, 0.5);
+  }
+  
+  .new-product-form form {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .new-product-form input {
+    margin-right: 2rem;
+    flex: 1;
+  }
+  
+  .new-product-form button:hover {
+    width: 150px;
+  }
+#footer{
+  display: flex;
+  justify-content: center;
+}  
+.searchbar{
+  display: flex;
+  justify-content:center;
+}
+#subscribe{
+  font-family:Arial, Helvetica, sans-serif
+}
+#sub{
+  background-color: rgba(121, 119, 2, 0.5);
 }
