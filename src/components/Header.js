@@ -4,7 +4,7 @@ function Header () {
   
     return (
       <div>
-        <h3 color='grey'>Mkulima solutions</h3>
+        <h1>MKULIMA SOLUTIONS</h1>
       </div>
     )
  
