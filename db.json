@@ -1,0 +1,35 @@
+{
+    "diseases": [
+      {
+        "name": "Newcastle Disease",
+        "treatment": "There is no specific treatment for Newcastle disease. Infected birds are usually culled to prevent spread. Vaccination programs can help reduce risk.",
+        "prevention": "Vaccinate poultry regularly, maintain good hygiene practices, and avoid contact with wild birds.",
+        "image": "https://example.com/images/newcastle_disease.jpg"
+      },
+      {
+        "name": "Avian Influenza",
+        "treatment": "No effective treatment for Avian Influenza in poultry. Infected flocks are typically culled to prevent further spread.",
+        "prevention": "Isolate infected flocks, practice strict biosecurity measures, and limit exposure to wild birds.",
+        "image": "/images/Avian Influenza"
+      },
+      {
+        "name": "Fowl Pox",
+        "treatment": "Vaccinate healthy birds. For infected birds, isolate and treat with iodine or other antiseptics on sores.",
+        "prevention": "Vaccinate poultry to prevent outbreaks, and control mosquitoes and other insect vectors.",
+        "image": "https://example.com/images/fowl_pox.jpg"
+      },
+      {
+        "name": "Marek's Disease",
+        "treatment": "No effective treatment available once infected. Vaccinate chicks on the day of hatching for prevention.",
+        "prevention": "Vaccination at the hatchery, maintain strict hygiene, and separate new birds from the flock.",
+        "image": "https://example.com/images/mareks_disease.jpg"
+      },
+      {
+        "name": "Coccidiosis",
+        "treatment": "Treat with anticoccidial medications in water or feed as prescribed by a vet.",
+        "prevention": "Keep litter dry, avoid overcrowding, and provide proper ventilation in poultry housing.",
+        "image": "https://example.com/images/coccidiosis.jpg"
+      }
+    ]
+  }
+  
