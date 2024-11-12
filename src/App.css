@@ -8,11 +8,17 @@
 
 .product-card {
   width: 200px;
-  border: 1px solid #ddd;
+  border: 1px solid #eeb4b4;
   padding: 15px;
   border-radius: 8px;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(18, 1, 1, 0.1);
+}
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(61, 61, 61, 0.15);
+  cursor: pointer;
+  background-color: navajowhite;
 }
 
 .product-image {
@@ -20,48 +26,47 @@
   height: auto;
   margin-bottom: 10px;
 }
-h1{
+h1 {
   display: flex;
   justify-content: center;
   background-color: rgba(121, 119, 2, 0.5);
   color: darkgrey;
 }
-.welcome{
+.welcome {
   display: flex;
   justify-content: center;
   background-color: red;
 }
-.new-product-form{
-  
-    padding: 2rem 1rem;
-    margin: 2rem 0;
-    background-color: rgba(57, 241, 152, 0.5);
-  }
-  
-  .new-product-form form {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .new-product-form input {
-    margin-right: 2rem;
-    flex: 1;
-  }
-  
-  .new-product-form button:hover {
-    width: 150px;
-  }
-#footer{
+.new-product-form {
+  padding: 2rem 1rem;
+  margin: 2rem 0;
+  background-color: rgba(57, 241, 152, 0.5);
+}
+
+.new-product-form form {
   display: flex;
   justify-content: center;
-}  
-.searchbar{
+}
+
+.new-product-form input {
+  margin-right: 2rem;
+  flex: 1;
+}
+
+.new-product-form button:hover {
+  width: 150px;
+}
+#footer {
   display: flex;
-  justify-content:center;
+  justify-content: center;
 }
-#subscribe{
-  font-family:Arial, Helvetica, sans-serif
+.searchbar {
+  display: flex;
+  justify-content: center;
 }
-#sub{
+#subscribe {
+  font-family: Arial, Helvetica, sans-serif;
+}
+#sub {
   background-color: rgba(121, 119, 2, 0.5);
 }
