@@ -1,85 +1,78 @@
-import React, {useState}from 'react'
+import React, { useState } from "react";
 
-function NewProductList ({onAddProduct}){
+function NewProductList({ onAddProduct }) {
   const [name, setName] = useState("");
-  const [image, setImage] = useState("");
   const [price, setPrice] = useState("");
-  const[category,setCategory]=useState("");
-  const[description, setDescription]=useState("");
+  const [description, setDescription] = useState("");
+  const [image, setImage] = useState("");
 
-  function handleSubmit(event){
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    const newProduct={
+    const newProduct = {
       name,
-      image,
-      category,
+      price: parseFloat(price),
       description,
-      price: parseFloat(price) || 0  // Ensuring price is a number 
+      image,
     };
-    // POSTS a new product to the server
-    fetch("http://localhost:5600/products", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(newProduct),
-    })
-      .then(response => response.json())
-      .then(onAddProduct);
 
-    // Clear form inputs after submission
+    // Call the parent function to add the new product
+    onAddProduct(newProduct);
+
+    // Clear the form after submission
     setName("");
-    setImage("");
-    setCategory("");
-    setDescription("");
     setPrice("");
-  }
+    setDescription("");
+    setImage("");
+  };
+
   return (
-    <div className="new-product-form">
-      <h2>New Product</h2>
+    <div className="form-group">
+      <h3>Add New Product</h3>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Product name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="text"
-          name="image"
-          placeholder="Image URL"
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
-        />
-        <input
-        type="text"
-        name="category"
-        placeholder="products category"
-        value={category}
-        onChange={(e)=>setCategory(e.target.value)}
-        />
-        <input
-        type="text"
-        name="description"
-        placeholder="products description"
-        value={description}
-        onChange={(e)=>setDescription(e.target.value)}
-        />
-        <input
-          type="number"
-          name="price"
-          step="0.01"
-          placeholder="Price"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-        />
-        <button type="submit">Add Product</button>
+        <div className="form-group">
+          <label>Product Name</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="form-control"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label>Price</label>
+          <input
+            type="number"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            className="form-control"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label>Description</label>
+          <textarea
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            className="form-control"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label>Image URL</label>
+          <input
+            type="url"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+            className="form-control"
+            required
+          />
+        </div>
+        <button type="submit" className="btn btn-primary">Add Product</button>
       </form>
     </div>
   );
 }
 
-
-export default NewProductList
+export default NewProductList;
