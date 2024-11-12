@@ -87,14 +87,6 @@
       "category": "Chicks",
       "description": "a healthy bird, laying eggs",
       "price": 23
-    },
-    {
-      "id": "c54f",
-      "name": "water",
-      "image": "",
-      "category": "Chicks",
-      "description": "a healthy bird, laying eggs",
-      "price": 23
     }
   ]
 }

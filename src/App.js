@@ -73,7 +73,7 @@ function App() {
               !isAdmin ? (
                 <AdminLogin onLogin={handleLogin} />
               ) : (
-                <Navigate to="/admin/dashboard"  />
+                <Navigate to="/admin/dashboard" replace />
               )
             }
           />
