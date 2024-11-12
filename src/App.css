@@ -26,11 +26,16 @@ h1{
   background-color: rgba(121, 119, 2, 0.5);
   color: darkgrey;
 }
+.welcome{
+  display: flex;
+  justify-content: center;
+  background-color: red;
+}
 .new-product-form{
   
     padding: 2rem 1rem;
     margin: 2rem 0;
-    background-color: rgba(121, 119, 2, 0.5);
+    background-color: rgba(57, 241, 152, 0.5);
   }
   
   .new-product-form form {
