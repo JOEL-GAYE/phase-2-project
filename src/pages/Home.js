@@ -26,7 +26,7 @@ const Home = ({ products, handleAddToCart, getProductQuantityInCart }) => {
               const productQuantityInCart = getProductQuantityInCart(product.id);
 
               return (
-                <div key={product.id} className="col-md-4 mb-4">
+                <div key={product.id} className="col-md-3 mb-4 ">
                   <div className="card h-100 product-card hover">
                     <img
                       src={product.image}

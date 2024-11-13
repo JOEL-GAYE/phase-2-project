@@ -1,4 +1,7 @@
-.custom-nav-link {
+body{
+  background-color: beige;
+}
+ .custom-nav-link {
   font-size: 1rem;
   font-weight: 500;
   color: #158cfa;
@@ -8,7 +11,7 @@
 .custom-nav-link:hover {
   color: #007bff;
   transform: translateY(-2px);
-}
+} */
 
 /* Navbar styles */
 .navbar-light {
@@ -17,6 +20,7 @@
 
 .navbar-nav .nav-item {
   margin-right: 15px; 
+  
 }
 
 
@@ -48,6 +52,7 @@
 .card:hover {
   transform: translateY(-5px); 
   box-shadow: 0 10px 20px rgba(231, 155, 155, 0.1); /* Subtle shadow on hover */
+  border-color: rgb(247, 93, 93);
 }
 
 .card-title {
@@ -128,42 +133,62 @@ h1{
 /* Card styling */
 .product-card {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for card depth */
-  border: none; /* Remove default Bootstrap card border */
+  height: fit-content;
+  width: 300px;
   transition: transform 0.3s ease-in-out; /* Smooth hover effect */
   border-radius: 8px; /* Rounded corners */
   overflow: hidden; /* Keeps content within card bounds */
+  
 }
 
 .product-card:hover {
-  transform: translateY(-5px); /* Lift card slightly on hover */
+  transform: translateY(-5px); 
+  border-color: rgb(244, 5, 5);
 }
 
-/* Image styling */
+
 .product-image {
-  height: 400px; /* Fixed height for consistency */
-  object-fit: cover; /* Ensures image fits within set dimensions */
-  border-bottom: 1px solid #ddd; /* Border to separate image from body */
+  height: 400px; 
+  object-fit: cover; 
+  border-bottom: 1px solid #ddd; 
 }
 
-/* Product card body */
+
 .product-card .card-body {
-  padding: 15px; /* Consistent spacing */
-  text-align: center; /* Centered text */
+  padding: 15px; 
+  text-align: center; 
 }
 
-/* Cart info section */
+
 .cart-info {
-  background-color: #e8f5e9; /* Light green background for cart details */
-  padding: 8px; /* Inner padding for content spacing */
-  border-radius: 5px; /* Smooth corners */
-  font-size: 0.9rem; /* Slightly smaller text */
-  margin-top: 10px; /* Spacing from price */
+  background-color: #e8f5e9; 
+  padding: 8px; 
+  border-radius: 5px;
+  font-size: 0.9rem; 
+  margin-top: 10px; 
 }
 
-/* Button styling */
 .btn-primary {
-  background-color: #007bff; /* Consistent button color */
-  border: none; /* Removes border for cleaner look */
-  font-weight: bold; /* Bold text for prominence */
+  background-color: #007bff; 
+  border: none; 
+  font-weight: bold; 
 }
-
+.container{
+  
+  font-style: italic;
+  font-size: 0.9rem;
+}
+.contact-container{
+  background-color: rgb(69, 69, 163);
+  font-size: 1rem;
+  font-style: italic;
+  font-display:initial;
+}
+.btn{
+  background-color: #007bff; 
+  border: none; 
+  font-weight: bold; 
+}
+.btn:hover{
+  background-color: #6dacf0;
+}
