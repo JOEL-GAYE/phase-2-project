@@ -11,7 +11,7 @@ body{
 .custom-nav-link:hover {
   color: #007bff;
   transform: translateY(-2px);
-} */
+} 
 
 /* Navbar styles */
 .navbar-light {
@@ -132,7 +132,7 @@ h1{
 }
 /* Card styling */
 .product-card {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for card depth */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   height: fit-content;
   width: 300px;
   transition: transform 0.3s ease-in-out; /* Smooth hover effect */
