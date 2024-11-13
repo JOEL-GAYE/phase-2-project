@@ -13,7 +13,7 @@ function AdminDashboard() {
   // Fetch all products from the API
   const fetchProducts = async () => {
     try {
-      const response = await fetch('http://localhost:5600/products');
+      const response = await fetch('https://my-json-server.typicode.com/JOEL-GAYE/phase-2-project/products');
       const data = await response.json();
       setProducts(data);
     } catch (error) {
@@ -24,7 +24,7 @@ function AdminDashboard() {
   // Add a new product
   const handleAddProduct = async (newProduct) => {
     try {
-      const response = await fetch('http://localhost:5600/products', {
+      const response = await fetch('https://my-json-server.typicode.com/JOEL-GAYE/phase-2-project/products', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ function AdminDashboard() {
   // Update an existing product
   const handleUpdateProduct = async (id, updatedProduct) => {
     try {
-      const response = await fetch(`http://localhost:5600/products/${id}`, {
+      const response = await fetch(`https://my-json-server.typicode.com/JOEL-GAYE/phase-2-project/products/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -62,7 +62,7 @@ function AdminDashboard() {
   // Delete a product
   const handleDeleteProduct = async (id) => {
     try {
-      await fetch(`http://localhost:5600/products/${id}`, {
+      await fetch(`https://my-json-server.typicode.com/JOEL-GAYE/phase-2-project/products/${id}`, {
         method: 'DELETE',
       });
       setProducts((prevProducts) =>

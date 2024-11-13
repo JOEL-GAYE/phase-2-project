@@ -22,7 +22,7 @@ const Contact = () => {
       setIsLoading(true);
       try {
         // Send data to backend
-        const response = await fetch('http://localhost:5600/contact', {
+        const response = await fetch('http://my-json-server.typicode.com/JOEL-GAYE/phase-2-project/contact', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

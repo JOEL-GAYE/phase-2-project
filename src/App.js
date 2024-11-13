@@ -26,7 +26,7 @@ function App() {
   };
 
   const fetchProduct = () => {
-    fetch('http://localhost:5600/products')
+    fetch('https://my-json-server.typicode.com/JOEL-GAYE/phase-2-project/products')
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch((error) => {
