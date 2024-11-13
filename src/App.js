@@ -1,47 +1,44 @@
-import React, { useState, useEffect } from "react"; 
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'; 
-import Footer from "./components/Footer"; 
-import Header from "./components/Header"; 
-import Search from "./components/Search"; 
-import Home from "./pages/Home"; 
-import NewProductList from "./components/NewProductList"; 
-import AdminLogin from "./components/AdminLogin"; 
-import AdminDashboard from "./components/AdminDashboard"; 
-import About from "./pages/About"; 
-import Contact from "./pages/Contact"; 
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Search from './components/Search';
+import Home from './pages/Home';
+import NewProductList from './components/NewProductList';
+import AdminLogin from './components/AdminLogin';
+import AdminDashboard from './components/AdminDashboard';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
-function App() { 
-  const [products, setProducts] = useState([]); 
-  const [searchTerm, setSearchTerm] = useState(""); 
-  const [cart, setCart] = useState([]); 
-  const [isAdmin, setIsAdmin] = useState(false); 
-  const [error, setError] = useState(null); // To handle error state
+function App() {
+  const [products, setProducts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [cart, setCart] = useState([]);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [error, setError] = useState(null);
 
-  // Handle login 
-  const handleLogin = (username, password) => { 
-    if (username === "admin" && password === "password123") { 
-      setIsAdmin(true); 
-    } else { 
-      alert("Invalid credentials"); 
-    } 
+  const handleLogin = (username, password) => {
+    if (username === 'admin' && password === 'password123') {
+      setIsAdmin(true);
+    } else {
+      alert('Invalid credentials');
+    }
   };
 
-  // Fetch products from API 
-  const fetchProduct = () => { 
-    fetch("http://localhost:5600/products") 
-      .then((res) => res.json()) 
-      .then((data) => setProducts(data)) 
-      .catch((error) => { 
-        console.error("Error fetching products:", error); 
-        setError("Failed to load products. Please try again later."); 
-      }); 
+  const fetchProduct = () => {
+    fetch('http://localhost:5600/products')
+      .then((res) => res.json())
+      .then((data) => setProducts(data))
+      .catch((error) => {
+        console.error('Error fetching products:', error);
+        setError('Failed to load products. Please try again later.');
+      });
   };
 
-  useEffect(() => { 
-    fetchProduct(); 
+  useEffect(() => {
+    fetchProduct();
   }, []);
 
-  // Handle adding products to the cart
   const handleAddToCart = (product) => {
     const existingProductIndex = cart.findIndex((item) => item.id === product.id);
     
@@ -55,10 +52,8 @@ function App() {
     }
   };
 
-  // Handle search input
   const handleSearch = (e) => setSearchTerm(e.target.value.toLowerCase());
 
-  // Filter products based on search term
   const filteredProducts = products.filter((product) =>
     product.name.toLowerCase().includes(searchTerm)
   );
@@ -74,14 +69,12 @@ function App() {
       <Router>
         <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-3">
           <div className="container-fluid">
-            {/* Left-aligned Links */}
             <div className="navbar-nav me-auto">
               <Link to="/" className="navbar-brand text-dark fw-bold">Home</Link>
               <Link to="/about" className="nav-link custom-nav-link mx-3">About</Link>
-              <Link to="/contact" className="nav-link custom-nav-link mx-3">Contact</Link>
+              <Link to="/contact" className="nav-link custom-nav-link mx-3">Contact Us</Link>
             </div>
 
-            {/* Right-aligned Admin Login Link */}
             <div className="navbar-nav ms-auto">
               <Link to="/adminLogin" className="nav-link custom-nav-link mx-3">Admin Login</Link>
             </div>
@@ -93,23 +86,21 @@ function App() {
         <Routes>
           <Route 
             path="/" 
-            element={
+            element={ 
               <Home 
                 products={filteredProducts} 
                 handleAddToCart={handleAddToCart} 
                 getProductQuantityInCart={getProductQuantityInCart} 
-              />} 
+              />
+            } 
           />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route 
-            path="/adminLogin" 
-            element={!isAdmin ? <AdminLogin onLogin={handleLogin} /> : <AdminDashboard />} 
-          />
+          <Route path="/adminLogin" element={!isAdmin ? <AdminLogin onLogin={handleLogin} /> : <AdminDashboard />} />
+          <Route path="adminDashboard/*" element={<AdminDashboard />} />
         </Routes>
       </Router>
 
-      {/* Error message for product loading */}
       {error && <div className="alert alert-danger">{error}</div>}
 
       <Footer />
