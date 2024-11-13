@@ -1,80 +1,81 @@
-.product-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  padding: 20px;
-}
-.type{
-  display: flex;
-  justify-content: center;
-}
-.login-form{
-  display: flex;
-  justify-content:first baseline
+.custom-nav-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #158cfa;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.product-card {
-  width: 200px;
-  border: 1px solid #eeb4b4;
+.custom-nav-link:hover {
+  color: #007bff;
+  transform: translateY(-2px);
+}
+
+/* Navbar styles */
+.navbar-light {
+  background-color: #f8f9fa 
+}
+
+.navbar-nav .nav-item {
+  margin-right: 15px; 
+}
+
+
+.navbar-nav.me-auto {
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+.navbar-nav.ms-auto {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+@media (max-width: 767px) {
+  .navbar-nav {
+    text-align: center;
+  }
+  .navbar-nav .nav-link {
+    margin: 10px 0; 
+  }
+}
+/* Card Styling */
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Lift the card slightly */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.card-img-top {
+  border-radius: 0.25rem;
+}
+
+.card-body {
   padding: 15px;
-  border-radius: 8px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(18, 1, 1, 0.1);
-}
-.product-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(61, 61, 61, 0.15);
-  cursor: pointer;
-  background-color: navajowhite;
 }
 
-.product-image {
-  width: 100%;
-  height: auto;
-  margin-bottom: 10px;
-}
-h1 {
-  display: flex;
-  justify-content: center;
-  background-color: rgba(121, 119, 2, 0.5);
-  color: darkgrey;
-}
-.welcome {
-  display: flex;
-  justify-content: center;
-  background-color: red;
-}
-.new-product-form {
-  padding: 2rem 1rem;
-  margin: 2rem 0;
-  background-color: rgba(57, 241, 152, 0.5);
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
 }
 
-.new-product-form form {
-  display: flex;
-  justify-content: center;
-}
-
-.new-product-form input {
-  margin-right: 2rem;
-  flex: 1;
-}
-
-.new-product-form button:hover {
-  width: 150px;
-}
-#footer {
-  display: flex;
-  justify-content: center;
-}
-.searchbar {
-  display: flex;
-  justify-content: center;
-}
-#subscribe {
-  font-family: Arial, Helvetica, sans-serif;
-}
-#sub {
-  background-color: rgba(121, 119, 2, 0.5);
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
 }

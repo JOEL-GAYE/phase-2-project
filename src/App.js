@@ -1,38 +1,44 @@
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Search from "./components/Search";
-import React, { useState, useEffect } from "react";
-import NewProductList from "./components/NewProductList";
-import AdminLogin from "./components/AdminLogin";
-import AdminDashboard from "./components/AdminDashboard";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import React, { useState, useEffect } from "react"; 
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'; 
+import Footer from "./components/Footer"; 
+import Header from "./components/Header"; 
+import Search from "./components/Search"; 
+import Home from "./pages/Home"; 
+import NewProductList from "./components/NewProductList"; 
+import AdminLogin from "./components/AdminLogin"; 
+import AdminDashboard from "./components/AdminDashboard"; 
+import About from "./pages/About"; 
+import Contact from "./pages/Contact"; 
 
-function App() {
-  const [products, setProducts] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [cart, setCart] = useState([]);
-  const [isAdmin, setIsAdmin] = useState(false);
+function App() { 
+  const [products, setProducts] = useState([]); 
+  const [searchTerm, setSearchTerm] = useState(""); 
+  const [cart, setCart] = useState([]); 
+  const [isAdmin, setIsAdmin] = useState(false); 
+  const [error, setError] = useState(null); // To handle error state
 
-  // Handle login
-  const handleLogin = (username, password) => {
-    if (username === "admin" && password === "password123") {
-      setIsAdmin(true);
-    } else {
-      alert("Invalid credentials");
-    }
+  // Handle login 
+  const handleLogin = (username, password) => { 
+    if (username === "admin" && password === "password123") { 
+      setIsAdmin(true); 
+    } else { 
+      alert("Invalid credentials"); 
+    } 
   };
 
-  // Fetch products
-  const fetchProduct = () => {
-    fetch("http://localhost:5600/products")
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
+  // Fetch products from API 
+  const fetchProduct = () => { 
+    fetch("http://localhost:5600/products") 
+      .then((res) => res.json()) 
+      .then((data) => setProducts(data)) 
+      .catch((error) => { 
+        console.error("Error fetching products:", error); 
+        setError("Failed to load products. Please try again later."); 
+      }); 
   };
 
-  useEffect(() => {
-    fetchProduct();
+  useEffect(() => { 
+    fetchProduct(); 
   }, []);
 
   // Handle adding products to the cart
@@ -40,31 +46,16 @@ function App() {
     const existingProductIndex = cart.findIndex((item) => item.id === product.id);
     
     if (existingProductIndex > -1) {
-      // If the product already exists in the cart, increase the quantity
       const updatedCart = [...cart];
       updatedCart[existingProductIndex].quantity += 1;
       setCart(updatedCart);
     } else {
-      // If the product doesn't exist in the cart, add it
       const newProduct = { ...product, quantity: 1 };
       setCart([...cart, newProduct]);
     }
   };
 
-  // Handle adding a new product (Admin functionality)
-  const handleAddProduct = (newProduct) => {
-    fetch("http://localhost:5600/products", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newProduct),
-    })
-      .then((response) => response.json())
-      .then(() => {
-        fetchProduct(); // Re-fetch the updated product list after adding a new product
-      });
-  };
-
-  // Handle searching for products
+  // Handle search input
   const handleSearch = (e) => setSearchTerm(e.target.value.toLowerCase());
 
   // Filter products based on search term
@@ -72,88 +63,57 @@ function App() {
     product.name.toLowerCase().includes(searchTerm)
   );
 
-  // Get the product's current quantity in the cart
   const getProductQuantityInCart = (productId) => {
     const product = cart.find((item) => item.id === productId);
     return product ? product.quantity : 0;
   };
 
-  // Calculate the total price of items in the cart
-  const calculateTotalPrice = () => {
-    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
-  };
-
   return (
-    <Router>
-      <div>
-        <div>
-        <Header />
-        {/* Admin Dashboard */}
+    <div>
+      <Header />
+      <Router>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-3">
+          <div className="container-fluid">
+            {/* Left-aligned Links */}
+            <div className="navbar-nav me-auto">
+              <Link to="/" className="navbar-brand text-dark fw-bold">Home</Link>
+              <Link to="/about" className="nav-link custom-nav-link mx-3">About</Link>
+              <Link to="/contact" className="nav-link custom-nav-link mx-3">Contact</Link>
+            </div>
+
+            {/* Right-aligned Admin Login Link */}
+            <div className="navbar-nav ms-auto">
+              <Link to="/adminLogin" className="nav-link custom-nav-link mx-3">Admin Login</Link>
+            </div>
+          </div>
+        </nav>
+
+        <Search handleSearch={handleSearch} />
+
         <Routes>
-          <Route
-            path="/"
+          <Route 
+            path="/" 
             element={
-              !isAdmin ? (
-                <AdminLogin onLogin={handleLogin} />
-              ) : (
-                <Navigate to="/admin/dashboard" replace />
-              )
-            }
+              <Home 
+                products={filteredProducts} 
+                handleAddToCart={handleAddToCart} 
+                getProductQuantityInCart={getProductQuantityInCart} 
+              />} 
           />
-          <Route
-            path="/admin/dashboard"
-            element={
-              isAdmin ? (
-                <div>
-                  <AdminDashboard />
-                  <NewProductList onAddProduct={handleAddProduct} />
-                </div>
-              ) : (
-                <Navigate to="/" replace />
-              )
-            }
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route 
+            path="/adminLogin" 
+            element={!isAdmin ? <AdminLogin onLogin={handleLogin} /> : <AdminDashboard />} 
           />
         </Routes>
-        </div>
-        
-        <Search handleSearch={handleSearch} />
-        
-        {/* Display filtered products */}
-        <div className="product-list">
-          {filteredProducts.map((product) => {
-            // Get the current quantity of this product in the cart
-            const productQuantityInCart = getProductQuantityInCart(product.id);
+      </Router>
 
-            return (
-              <div key={product.id} className="product-card">
-                <img src={product.image} alt={product.name} className="product-image" />
-                <h3>{product.name}</h3>
-                <p>{product.description}</p>
-                <p><strong>Price:</strong> ${product.price}</p>
+      {/* Error message for product loading */}
+      {error && <div className="alert alert-danger">{error}</div>}
 
-                {/* Display cart information for this product */}
-                {productQuantityInCart > 0 ? (
-                  <div className="cart-info">
-                    <p>Added to cart: {productQuantityInCart} item(s)</p>
-                    <p>Total: ${product.price * productQuantityInCart}</p>
-                  </div>
-                ) : (
-                  <p>No items in cart</p>
-                )}
-
-                <button onClick={() => handleAddToCart(product)} className="btn btn-primary">
-                  Add to Cart
-                </button>
-              </div>
-            );
-          })}
-        </div>
-
-        
-
-        <Footer />
-      </div>
-    </Router>
+      <Footer />
+    </div>
   );
 }
 
