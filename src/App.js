@@ -81,7 +81,7 @@ function App() {
           </div>
         </nav>
 
-        <Search handleSearch={handleSearch} />
+        
 
         <Routes>
           <Route 
