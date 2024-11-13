@@ -1,13 +1,12 @@
-import React from 'react'
+import React from 'react';
+import '../App.css'; 
 
-function Header () {
-  
+function Header() {
     return (
-      <div>
-        <h1>MKULIMA SOLUTIONS</h1>
-      </div>
-    )
- 
+        <header className="header">
+            <h1>MKULIMA SOLUTIONS</h1>
+        </header>
+    );
 }
 
-export default Header
+export default Header;

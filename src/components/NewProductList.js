@@ -18,15 +18,12 @@ function NewProductList({ products, onAddProduct, onUpdateProduct, onDeleteProdu
       image,
     };
 
-    // If editing an existing product, call the update function
     if (editingProductId !== null) {
       onUpdateProduct(editingProductId, newProduct);
     } else {
-      // Otherwise, add a new product
       onAddProduct(newProduct);
     }
 
-    // Clear the form after submission
     setName("");
     setPrice("");
     setDescription("");
@@ -34,7 +31,6 @@ function NewProductList({ products, onAddProduct, onUpdateProduct, onDeleteProdu
     setEditingProductId(null);
   };
 
-  // Function to handle editing a product
   const handleEdit = (product) => {
     setEditingProductId(product.id);
     setName(product.name);
@@ -43,16 +39,15 @@ function NewProductList({ products, onAddProduct, onUpdateProduct, onDeleteProdu
     setImage(product.image);
   };
 
-  // Function to handle deleting a product
   const handleDelete = (productId) => {
     onDeleteProduct(productId);
   };
 
   return (
-    <div className="form-group">
+    <div className="container my-4">
       <h3>{editingProductId ? "Edit Product" : "Add New Product"}</h3>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
+      <form onSubmit={handleSubmit} className="mb-2">
+        <div className="form-group mb-3">
           <label>Product Name</label>
           <input
             type="text"
@@ -62,7 +57,7 @@ function NewProductList({ products, onAddProduct, onUpdateProduct, onDeleteProdu
             required
           />
         </div>
-        <div className="form-group">
+        <div className="form-group mb-3">
           <label>Price</label>
           <input
             type="number"
@@ -72,7 +67,7 @@ function NewProductList({ products, onAddProduct, onUpdateProduct, onDeleteProdu
             required
           />
         </div>
-        <div className="form-group">
+        <div className="form-group mb-3">
           <label>Description</label>
           <textarea
             value={description}
@@ -81,7 +76,7 @@ function NewProductList({ products, onAddProduct, onUpdateProduct, onDeleteProdu
             required
           />
         </div>
-        <div className="form-group">
+        <div className="form-group mb-3">
           <label>Image URL</label>
           <input
             type="url"
@@ -97,31 +92,34 @@ function NewProductList({ products, onAddProduct, onUpdateProduct, onDeleteProdu
       </form>
 
       <h3>Product List</h3>
-      <ul className="list-group">
+      <div className="row">
         {products.map((product) => (
-          <li key={product.id} className="list-group-item">
-            <strong>{product.name}</strong> - ${product.price}
-            <br />
-            {product.description}
-            <br />
-            <img src={product.image} alt={product.name} width="50" height="50" />
-            <div>
-              <button
-                className="btn btn-warning btn-sm mx-2"
-                onClick={() => handleEdit(product)}
-              >
-                Edit
-              </button>
-              <button
-                className="btn btn-danger btn-sm"
-                onClick={() => handleDelete(product.id)}
-              >
-                Delete
-              </button>
+          <div key={product.id} className="col-md-3 mb-6">
+            <div className="card shadow-sm">
+              <img src={product.image} className="card-img-top" alt={product.name} style={{ height: "300px", objectFit: "cover" }} />
+              <div className="card-body">
+                <h5 className="card-title">{product.name}</h5>
+                <p className="card-text text-muted">${product.price.toFixed(2)}</p>
+                <p className="card-text">{product.description}</p>
+                <div className="d-flex justify-content-between">
+                  <button
+                    className="btn btn-warning btn-sm"
+                    onClick={() => handleEdit(product)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="btn btn-danger btn-sm"
+                    onClick={() => handleDelete(product.id)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
             </div>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

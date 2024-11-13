@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'; 
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -81,8 +81,6 @@ function App() {
           </div>
         </nav>
 
-        
-
         <Routes>
           <Route 
             path="/" 
@@ -99,11 +97,13 @@ function App() {
           <Route path="/adminLogin" element={!isAdmin ? <AdminLogin onLogin={handleLogin} /> : <AdminDashboard />} />
           <Route path="adminDashboard/*" element={<AdminDashboard />} />
         </Routes>
+
+        {/* Conditionally render the Footer only for Home, About, and Contact pages */}
+        {(window.location.pathname === '/' || window.location.pathname === '/About' || window.location.pathname === '/contact') && <Footer />}
+        
       </Router>
 
       {error && <div className="alert alert-danger">{error}</div>}
-
-      <Footer />
     </div>
   );
 }

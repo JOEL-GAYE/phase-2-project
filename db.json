@@ -79,18 +79,15 @@
       "price": 6.5,
       "description": "Broad-spectrum antibiotic powder for the treatment of bacterial infections.",
       "image": "/images/alyserly.jpeg"
-    },
-    {
-      "name": "Kienyeji Feeds",
-      "price": 28,
-      "description": "healthy for birds at free range",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb7dz0U9nF54sqsmSZJfCfAHlvDxqmmwDh4g&s",
-      "id": "89e3"
     }
   ],
   "subscribers": [
     {
       "id": "ecd5",
+      "email": "joelgaye17@gmail.com"
+    },
+    {
+      "id": "15e2",
       "email": "joelgaye17@gmail.com"
     }
   ],
@@ -100,6 +97,24 @@
       "name": "Joel Ouma",
       "email": "joelgaye17@gmail.com",
       "message": "hhdh"
+    },
+    {
+      "id": "4430",
+      "name": "Joel Ouma",
+      "email": "joelgaye17@gmail.com",
+      "message": "gff"
+    },
+    {
+      "id": "ebba",
+      "name": "Joel Gaye",
+      "email": "joelgaye17@gmail.com",
+      "message": "irene"
+    },
+    {
+      "id": "6ed3",
+      "name": "Joel neko",
+      "email": "joelgaye17@gmail.com",
+      "message": "2356"
     }
   ]
 }
