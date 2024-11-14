@@ -2,7 +2,7 @@ import React from 'react';
 
 const About = () => {
   return (
-    <div className="container" style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+    <div className="container bg-primary" style={{ padding: '30px', fontFamily: 'Arial, sans-serif' }}>
       <header style={{ textAlign: 'center', marginBottom: '30px' }}>
         <h1>Welcome to Mkulima solutions</h1>
         <p>Your trusted partner in quality poultry and farming solutions.</p>
