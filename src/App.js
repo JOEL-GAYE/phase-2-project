@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'; 
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, useLocation, Navigate } from 'react-router-dom';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Home from './pages/Home';
@@ -62,9 +62,9 @@ function App() {
   };
 
   return (
-    <div>
-      <Header />
-      <Router>
+    <Router>
+      <div>
+        <Header />
         <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-3">
           <div className="container-fluid">
             <div className="navbar-nav me-auto">
@@ -92,18 +92,28 @@ function App() {
           />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/adminLogin" element={!isAdmin ? <AdminLogin onLogin={handleLogin} /> : <AdminDashboard />} />
+          <Route path="/adminLogin" 
+                 element={isAdmin ? <Navigate to="/adminDashboard" /> : <AdminLogin onLogin={handleLogin} />} 
+          />
           <Route path="adminDashboard/*" element={<AdminDashboard />} />
         </Routes>
 
-        {/* Conditionally render the Footer only for Home, About, and Contact pages */}
-        {(window.location.pathname === '/' || window.location.pathname === '/about' || window.location.pathname === '/contact') && <Footer />}
-        
-      </Router>
+        {/* Footer will render only for specific routes */}
+        <FooterWithLocation />
+      </div>
 
-      {error && <div className="alert alert-danger">{error}</div>}
-    </div>
+      {error && (
+        <div style={{ position: 'fixed', top: 10, right: 10, zIndex: 999 }} className="alert alert-danger">
+          {error}
+        </div>
+      )}
+    </Router>
   );
+}
+
+function FooterWithLocation() {
+  const location = useLocation();  // useLocation now works here because it's inside Router
+  return (location.pathname === '/' || location.pathname === '/about' || location.pathname === '/contact') ? <Footer /> : null;
 }
 
 export default App;

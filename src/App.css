@@ -7,8 +7,6 @@ body{
   color: #158cfa;
   transition: color 0.3s ease, transform 0.3s ease;
 }
-
-
 .custom-nav-link:hover {
   color: #007bff;
   transform: translateY(-2px);
