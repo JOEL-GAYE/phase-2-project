@@ -11,8 +11,8 @@ function AdminLogin({ onLogin }) {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center min-vh-100 bg-light">
-      <div className="login-container bg-white p-4 rounded shadow-sm w-100 w-md-50 w-lg-25">
+    <div className=" justify-content-center align-items-center min-vh-30  container">
+      <div className="login-container bg-white p-4 rounded shadow-sm w-100 w-md-0 w-lg-5">
         {/* SVG Icon */}
         <div className="text-center mb-3">
           <img
@@ -25,7 +25,7 @@ function AdminLogin({ onLogin }) {
         </div>
 
         {/* Login Form */}
-        <h2 className="text-center mb-4">Admin Login</h2>
+        <h2 className="text-center mb-4 bg-primary">Admin Login</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group mb-3">
             <label htmlFor="username" className="form-label">Username:</label>
@@ -38,7 +38,7 @@ function AdminLogin({ onLogin }) {
               className="form-control"
             />
           </div>
-          <div className="form-group mb-3">
+          <div className="form-group mb-3 ">
             <label htmlFor="password" className="form-label">Password:</label>
             <input
               type="password"
@@ -49,7 +49,7 @@ function AdminLogin({ onLogin }) {
               className="form-control"
             />
           </div>
-          <button type="submit" className="btn btn-primary w-100">
+          <button type="submit" className="btn btn-primary w-20">
             Login
           </button>
         </form>
