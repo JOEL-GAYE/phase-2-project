@@ -50,7 +50,7 @@ function App() {
     }
   };
 
-  const handleSearch = (e) => setSearchTerm(e.target.value.toLowerCase());
+  
 
   const filteredProducts = products.filter((product) =>
     product.name.toLowerCase().includes(searchTerm)
