@@ -10,7 +10,6 @@ import Contact from './pages/Contact';
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
   const [cart, setCart] = useState([]);
   const [isAdmin, setIsAdmin] = useState(false);
   const [error, setError] = useState(null);
