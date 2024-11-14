@@ -92,36 +92,32 @@ function NewProductList({ products, onAddProduct, onUpdateProduct, onDeleteProdu
 
       <h3>Product List</h3>
       <div className="row">
-        {Array.isArray(products) ? (
-          products.map((product) => (
-            <div key={product.id} className="col-md-3 mb-6">
-              <div className="card shadow-sm">
-                <img src={product.image} className="card-img-top" alt={product.name} style={{ height: "300px", objectFit: "cover" }} />
-                <div className="card-body">
-                  <h5 className="card-title">{product.name}</h5>
-                  <p className="card-text text-muted">${product.price.toFixed(2)}</p>
-                  <p className="card-text">{product.description}</p>
-                  <div className="d-flex justify-content-between">
-                    <button
-                      className="btn btn-warning btn-sm"
-                      onClick={() => handleEdit(product)}
-                    >
-                      Edit
-                    </button>
-                    <button
-                      className="btn btn-danger btn-sm"
-                      onClick={() => handleDelete(product.id)}
-                    >
-                      Delete
-                    </button>
-                  </div>
+        {products.map((product) => (
+          <div key={product.id} className="col-md-3 mb-6">
+            <div className="card shadow-sm">
+              <img src={product.image} className="card-img-top" alt={product.name} style={{ height: "300px", objectFit: "cover" }} />
+              <div className="card-body">
+                <h5 className="card-title">{product.name}</h5>
+                <p className="card-text text-muted">${product.price.toFixed(2)}</p>
+                <p className="card-text">{product.description}</p>
+                <div className="d-flex justify-content-between">
+                  <button
+                    className="btn btn-warning btn-sm"
+                    onClick={() => handleEdit(product)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="btn btn-danger btn-sm"
+                    onClick={() => handleDelete(product.id)}
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
             </div>
-          ))
-        ) : (
-          <p>No products available</p>
-        )}
+          </div>
+        ))}
       </div>
     </div>
   );
