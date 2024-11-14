@@ -9,7 +9,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 
 function App() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([]); 
   const [searchTerm, setSearchTerm] = useState('');
   const [cart, setCart] = useState([]);
   const [isAdmin, setIsAdmin] = useState(false);
@@ -26,7 +26,9 @@ function App() {
   const fetchProduct = () => {
     fetch('https://my-json-server.typicode.com/JOEL-GAYE/phase-2-project/products')
       .then((res) => res.json())
-      .then((data) => setProducts(data))
+      .then((data) => {
+        setProducts(Array.isArray(data) ? data : []); 
+      })
       .catch((error) => {
         console.error('Error fetching products:', error);
         setError('Failed to load products. Please try again later.');
@@ -50,10 +52,8 @@ function App() {
     }
   };
 
-  
-
   const filteredProducts = products.filter((product) =>
-    product.name.toLowerCase().includes(searchTerm)
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const getProductQuantityInCart = (productId) => {
@@ -97,7 +97,7 @@ function App() {
         </Routes>
 
         {/* Conditionally render the Footer only for Home, About, and Contact pages */}
-        {(window.location.pathname === '/' || window.location.pathname === '/About' || window.location.pathname === '/contact') && <Footer />}
+        {(window.location.pathname === '/' || window.location.pathname === '/about' || window.location.pathname === '/contact') && <Footer />}
         
       </Router>
 
