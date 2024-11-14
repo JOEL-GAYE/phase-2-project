@@ -19,7 +19,7 @@
     "start": "react-scripts start",
   "build": "react-scripts build",
   "predeploy": "npm run build",
-  "deploy": "gh-pages -d build",
+  "deploy": "gh-pages -d build -f",
   "server": "json-server --watch db.json -p 6001",
   "test": "jest--bail"
 
