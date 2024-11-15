@@ -35,7 +35,7 @@ function Footer() {
   };
 
   return (
-    <div className="container my-5 p-4 rounded-3 bg-suc text-light text-center shadow-lg" id="sub">
+    <div className="container my-5 p-4 rounded-3 bg-success text-light text-center shadow-lg" id="sub">
       <h3 className="fw-bold text-warning">Subscribe</h3>
       <p className="text-light">
         Leave your email here for regular tips, notifications, and new products!

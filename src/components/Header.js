@@ -5,7 +5,6 @@ import '../App.css';
 function Header() {
     return (
         <header className="header">
-            <img src="./images/ndogo.jpg" alt="MKULIMA SOLUTIONS Logo" className="logo" />
             <h1>MKULIMA SOLUTIONS</h1>
         </header>
     );
