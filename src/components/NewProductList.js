@@ -41,9 +41,10 @@ function NewProductList({ products, onAddProduct, onUpdateProduct, onDeleteProdu
   const handleDelete = (productId) => {
     onDeleteProduct(productId);
   };
+  console.log(products)
 
   return (
-    <div className="container my-4">
+    <div className="container my-4 ">
       <h3>{editingProductId ? "Edit Product" : "Add New Product"}</h3>
       <form onSubmit={handleSubmit} className="mb-2">
         <div className="form-group mb-3">
@@ -52,7 +53,7 @@ function NewProductList({ products, onAddProduct, onUpdateProduct, onDeleteProdu
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="form-control"
+            className="form-control "
             required
           />
         </div>

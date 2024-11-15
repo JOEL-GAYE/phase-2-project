@@ -75,7 +75,7 @@ function AdminDashboard() {
 
   return (
     <div>
-      <h2>Admin Dashboard</h2>
+      <h2 className='admin'>Admin Dashboard</h2>
       <NewProductList
         products={products}
         onAddProduct={handleAddProduct}

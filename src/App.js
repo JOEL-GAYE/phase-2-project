@@ -8,6 +8,8 @@ import AdminDashboard from './components/AdminDashboard';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import NewProductList from './components/NewProductList';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -114,6 +116,15 @@ function App() {
     }
   };
 
+  // Handle Update Cart Quantity
+  const handleUpdateCart = (productId, quantity) => {
+    setCart((prevCart) =>
+      prevCart.map((item) =>
+        item.id === productId ? { ...item, quantity } : item
+      )
+    );
+  };
+
   // Filtered Products based on search term
   const filteredProducts = products.filter((product) =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -129,12 +140,13 @@ function App() {
     <div>
       <Header />
       <Router>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-3">
+        <nav className="navbar navbar-expand-lg navbar-light bg-success shadow-sm py-3">
           <div className="container-fluid">
             <div className="navbar-nav me-auto">
-              <Link to="/home" className="navbar-brand text-dark fw-bold">Home</Link>
+              <Link to="/home" className="nav-link custom-nav-link mx-3">Home</Link>
               <Link to="/about" className="nav-link custom-nav-link mx-3">About</Link>
               <Link to="/contact" className="nav-link custom-nav-link mx-3">Contact Us</Link>
+              
             </div>
 
             <div className="navbar-nav ms-auto">
@@ -145,18 +157,21 @@ function App() {
 
         <Routes>
           <Route 
-            path="/" 
+            path="/home" 
             element={ 
               <Home 
                 products={filteredProducts} 
                 handleAddToCart={handleAddToCart} 
                 getProductQuantityInCart={getProductQuantityInCart} 
+                handleUpdateCart={handleUpdateCart} 
               />
             } 
           />
-          <Route path='/home' element={<Home/>}/>
+          <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          
+
           <Route path="/adminLogin" element={!isAdmin ? <AdminLogin onLogin={handleLogin} /> : <AdminDashboard />} />
           <Route 
             path="/adminDashboard" 
@@ -174,7 +189,7 @@ function App() {
         </Routes>
 
         {/* Conditionally render the Footer only for Home, About, and Contact pages */}
-        {(window.location.pathname === '/' || window.location.pathname === '/about' || window.location.pathname === '/contact') && <Footer />}
+        {(window.location.pathname === '/home' || window.location.pathname === '/about' || window.location.pathname === '/contact') && <Footer />}
         
       </Router>
 

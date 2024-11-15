@@ -1,46 +1,49 @@
 body{
-  background-color: navajowhite;
-}
- .custom-nav-link {
-  font-size: 1rem;
+  background-color: #faf5e4;
+  color: #2e8b57;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}.custom-nav-link {
+  font-size: 1.5rem;
   font-weight: 500;
-  color: #158cfa;
   transition: color 0.3s ease, transform 0.3s ease;
 }
+
 .custom-nav-link:hover {
-  color: #007bff;
+  color:#ffd700;
   transform: translateY(-2px);
-} 
+}
+.navbar{
+  color: red;
+}
 
 /* Navbar styles */
 .navbar-light {
-  background-color: #f8f9fa 
+  color:#faf5e4;
 }
 
 .navbar-nav .nav-item {
-  margin-right: 15px; 
-  
+  margin-right: 15px;
 }
-
 
 .navbar-nav.me-auto {
   display: flex;
   justify-content: flex-start;
 }
 
-
 .navbar-nav.ms-auto {
   display: flex;
   justify-content: flex-end;
 }
 
-
 @media (max-width: 767px) {
   .navbar-nav {
     text-align: center;
   }
+
   .navbar-nav .nav-link {
-    margin: 10px 0; 
+    margin: 10px 0;
   }
 }
 
@@ -49,9 +52,9 @@ body{
 }
 
 .card:hover {
-  transform: translateY(-5px); 
-  box-shadow: 0 10px 20px rgba(231, 155, 155, 0.1); /* Subtle shadow on hover */
-  border-color: rgb(247, 93, 93);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(211, 103, 103, 0.1);
+  border-color: #9acd32;
 }
 
 .card-title {
@@ -83,20 +86,19 @@ body{
   background-color: #0056b3;
   border-color: #0056b3;
 }
+
 .header {
   display: flex;
   align-items: center;
   padding: 10px;
   justify-content: center;
+  background:linear-gradient(90deg,#5afca0,#faf5e4);
 }
 
 .logo {
-  height: 80px; 
-  margin-right: 15px; 
+  height: 80px;
+  margin-right: 15px;
 }
-
-
-
 
 .header h1 {
   font-size: 2rem;
@@ -104,91 +106,97 @@ body{
   margin: 0;
   font-weight: bold;
 }
+
 .product-card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-}
-
-.product-image {
-    height: 200px;
-    object-fit: cover;
+  transform: translateY(-5px);
 }
 
 .cart-info {
-    background-color: #e8f5e9;
-    padding: 10px;
-    border-radius: 5px;
+  background-color: #e8f5e9;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .hover {
-    transition: transform 0.2s;
+  transition: transform 0.2s;
 }
 
 .hover:hover {
-    transform: scale(1.03);
+  transform: scale(1.03);
 }
+
 /* Card styling */
 .product-card {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  height: fit-content;
-  width: 300px;
-  transition: transform 0.3s ease-in-out; /* Smooth hover effect */
-  border-radius: 8px; /* Rounded corners */
-  overflow: hidden; /* Keeps content within card bounds */
-  
+  display: flex;
 }
 
 .product-card:hover {
-  transform: translateY(-5px); 
+  transform: translateY(-5px);
   border-color: rgb(244, 5, 5);
 }
 
-
 .product-image {
-  height: 400px; 
-  object-fit: cover; 
-  border-bottom: 1px solid #ddd; 
+  height: 300px;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
 }
-
 
 .product-card .card-body {
-  padding: 15px; 
-  text-align: center; 
+  padding: 15px;
+  text-align: center;
 }
 
-
 .cart-info {
-  background-color: #e8f5e9; 
-  padding: 8px; 
+  background-color: #e8f5e9;
+  padding: 8px;
   border-radius: 5px;
-  font-size: 0.9rem; 
-  margin-top: 10px; 
+  font-size: 0.9rem;
+  margin-top: 10px;
 }
 
 .btn-primary {
-  background-color: #007bff; 
-  border: none; 
-  font-weight: bold; 
+  background-color: #007bff;
+  border: none;
+  font-weight: bold;
 }
-.container{
-  
+
+.about-container {
   font-style: italic;
   font-size: 0.9rem;
+  background-color: rgb(231, 217, 195);
 }
-.contact-container{
-  background-color: rgb(69, 69, 163);
+.about-container h2 {
+  text-decoration-color: white;
+}
+.contact-container {
+  background-color: #faf5e4;
   font-size: 1rem;
-  font-style: italic;
-  font-display:initial;
+  padding: 40px;
+  color: #2e8b57;
 }
-.btn{
-  border: none; 
-  font-weight: bold; 
+.us {
+  display: flex;
+  justify-content: start;
+  color: rgb(191, 37, 109);
+  font-family: "Courier New", Courier, monospace;
 }
-.btn:hover{
+
+.btn {
+  border: none;
+  font-weight: bold;
+}
+
+.btn:hover {
   background-color: #6dacf0;
+}
+.admin {
+  display: flex;
+  justify-content: center;
+  color: red;
+  font-family: "Courier New", Courier, monospace;
 }

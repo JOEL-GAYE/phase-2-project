@@ -16,7 +16,7 @@ function AdminLogin({ onLogin }) {
         {/* SVG Icon */}
         <div className="text-center mb-3">
           <img
-            src="/images/icons/login-lock-refresh-svgrepo-com.svg"
+            src="./images/icons/login-lock-refresh-svgrepo-com.svg"
             alt="Lock Icon"
             width={40}
             height={40}
