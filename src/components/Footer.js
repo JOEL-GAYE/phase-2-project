@@ -11,7 +11,7 @@ function Footer() {
     if (email) {
       try {
         //  a POST request to save the email
-        const response = await fetch("https://my-json-server.typicode.com/JOEL-GAYE/phase-2-project/subscribers", {
+        const response = await fetch("http://localhost:5600/subscribers", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"

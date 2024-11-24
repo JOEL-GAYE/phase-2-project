@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes, Link } from 'react-router-dom'; // Use HashRouter
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Home from './pages/Home';
@@ -10,7 +10,6 @@ import Contact from './pages/Contact';
 import NewProductList from './components/NewProductList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 function App() {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -18,7 +17,6 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [error, setError] = useState(null);
 
-  // Handle Admin Login
   const handleLogin = (username, password) => {
     if (username === 'admin' && password === 'password123') {
       setIsAdmin(true);
@@ -27,7 +25,6 @@ function App() {
     }
   };
 
-  // Fetch Products from the server or local storage
   const fetchProducts = () => {
     fetch('https://my-json-server.typicode.com/JOEL-GAYE/phase-2-project/products')
       .then((res) => res.json())
@@ -44,7 +41,6 @@ function App() {
     fetchProducts();
   }, []);
 
-  // Handle Add Product (POST request)
   const handleAddProduct = (newProduct) => {
     fetch('https://my-json-server.typicode.com/JOEL-GAYE/phase-2-project/products', {
       method: 'POST',
@@ -63,7 +59,6 @@ function App() {
       });
   };
 
-  // Handle Update Product (PUT request)
   const handleUpdateProduct = (productId, updatedProduct) => {
     fetch(`https://my-json-server.typicode.com/JOEL-GAYE/phase-2-project/products/${productId}`, {
       method: 'PUT',
@@ -86,7 +81,6 @@ function App() {
       });
   };
 
-  // Handle Delete Product (DELETE request)
   const handleDeleteProduct = (productId) => {
     fetch(`https://my-json-server.typicode.com/JOEL-GAYE/phase-2-project/products/${productId}`, {
       method: 'DELETE',
@@ -102,7 +96,6 @@ function App() {
       });
   };
 
-  // Handle Add to Cart
   const handleAddToCart = (product) => {
     const existingProductIndex = cart.findIndex((item) => item.id === product.id);
 
@@ -116,7 +109,6 @@ function App() {
     }
   };
 
-  // Handle Update Cart Quantity
   const handleUpdateCart = (productId, quantity) => {
     setCart((prevCart) =>
       prevCart.map((item) =>
@@ -125,12 +117,10 @@ function App() {
     );
   };
 
-  // Filtered Products based on search term
   const filteredProducts = products.filter((product) =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Get product quantity in cart
   const getProductQuantityInCart = (productId) => {
     const product = cart.find((item) => item.id === productId);
     return product ? product.quantity : 0;
@@ -143,10 +133,9 @@ function App() {
         <nav className="navbar navbar-expand-lg navbar-light bg-success shadow-sm py-3">
           <div className="container-fluid">
             <div className="navbar-nav me-auto">
-              <Link to="/home" className="nav-link custom-nav-link mx-3">Home</Link>
+              <Link to="/" className="nav-link custom-nav-link mx-3">Home</Link>
               <Link to="/about" className="nav-link custom-nav-link mx-3">About</Link>
               <Link to="/contact" className="nav-link custom-nav-link mx-3">Contact Us</Link>
-              
             </div>
 
             <div className="navbar-nav ms-auto">
@@ -157,7 +146,7 @@ function App() {
 
         <Routes>
           <Route 
-            path="/home" 
+            path="/" 
             element={ 
               <Home 
                 products={filteredProducts} 
@@ -167,11 +156,8 @@ function App() {
               />
             } 
           />
-          <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          
-
           <Route path="/adminLogin" element={!isAdmin ? <AdminLogin onLogin={handleLogin} /> : <AdminDashboard />} />
           <Route 
             path="/adminDashboard" 
@@ -188,9 +174,7 @@ function App() {
           />
         </Routes>
 
-        {/* Conditionally render the Footer only for Home, About, and Contact pages */}
-        {(window.location.pathname === '/home' || window.location.pathname === '/about' || window.location.pathname === '/contact') && <Footer />}
-        
+        {(window.location.hash === '#/' || window.location.hash === '#/about' || window.location.hash === '#/contact') && <Footer />}
       </Router>
 
       {error && <div className="alert alert-danger">{error}</div>}
